@@ -18,9 +18,15 @@
 
   <%= yield(:head) %>
 </head>
-<body>
+<body class="skin-blue layout-boxed">
+  <div class="wrapper">
+    <%= render 'shared/header' %>
+    <%= render 'shared/sidebar' %>
+    <div class="content-wrapper">
+      <%= yield %>
+    </div>
 
-<%= yield %>
-
+    <%= render 'shared/footer' %>
+  </div>
 </body>
 </html>

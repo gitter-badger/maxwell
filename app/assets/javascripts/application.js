@@ -2,8 +2,15 @@
 //= require jquery2
 //= require jquery_ujs
 //
-// jQuery Plugins
-//= require iCheck/icheck.min
+// Bootstrap
+//= require bootstrap.min
+//
+// Plugins
+//= require icheck.min
+//= require jquery.slimscroll.min
+//= require fastclick.min
+//
+//= require app.min
 
 $(function() {
   $('.icheck input').iCheck({

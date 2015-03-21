@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'dashboard/index'
   get 'pages/home'
 
   devise_for :users, path_names: {
@@ -15,5 +16,5 @@ Rails.application.routes.draw do
     get '/logout' => 'devise/sessions#destroy'
   end
 
-  root to: 'pages#home'
+  root to: 'dashboard#index'
 end
