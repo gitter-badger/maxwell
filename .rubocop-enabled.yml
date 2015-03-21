@@ -1,0 +1,491 @@
+# Supports --auto-correct
+Lint/BlockAlignment:
+  Description: 'Align block ends correctly.'
+  Enabled: true
+
+Lint/ConditionPosition:
+  Description: 'Checks for condition placed in a confusing position relative to the keyword.'
+  Enabled: true
+
+Lint/Debugger:
+  Description: 'Check for debugger calls.'
+  Enabled: true
+
+Lint/ElseLayout:
+  Description: 'Check for odd code arrangement in an else block.'
+  Enabled: true
+
+Lint/EmptyEnsure:
+  Description: 'Checks for empty ensure block.'
+  Enabled: true
+
+# The value `keyword` means that `end` should be aligned with the matching
+# keyword (if, while, etc.).
+# The value `variable` means that in assignments, `end` should be aligned
+# with the start of the variable on the left hand side of `=`. In all other
+# situations, `end` should still be aligned with the keyword.
+Lint/EndAlignment:
+  Description: 'Align ends correctly.'
+  Enabled: true
+  AlignWith: variable
+  SupportedStyles:
+  - keyword
+  - variable
+
+Lint/EndInMethod:
+  Description: 'END blocks should not be placed inside method definitions.'
+  Enabled: true
+
+Lint/EnsureReturn:
+  Description: 'Do not use return in an ensure block.'
+  Enabled: true
+
+Lint/InvalidCharacterLiteral:
+  Description: 'Checks for invalid character literals with a non-escaped whitespace character.'
+  Enabled: true
+
+Lint/LiteralInCondition:
+  Description: 'Checks of literals used in conditions.'
+  Enabled: true
+
+Lint/Loop:
+  Description: 'Use Kernel#loop with break rather than begin/end/until or begin/end/while for post-loop tests.'
+  Enabled: true
+
+Lint/ParenthesesAsGroupedExpression:
+  Description: 'Checks for method calls with a space before the opening parenthesis.'
+  Enabled: true
+
+Lint/RequireParentheses:
+  Description: 'Use parentheses in the method call to avoid confusion about precedence.'
+  Enabled: true
+
+Lint/UselessComparison:
+  Description: 'Checks for comparison of something with itself.'
+  Enabled: true
+
+Lint/UselessElseWithoutRescue:
+  Description: 'Checks for useless `else` in `begin..end` without `rescue`.'
+  Enabled: true
+
+Lint/UselessSetterCall:
+  Description: 'Checks for useless setter call to a local variable.'
+  Enabled: true
+
+Metrics/LineLength:
+  Description: Limit lines to 131 characters.
+  StyleGuide: https://github.com/bbatsov/ruby-style-guide#80-character-limits
+  Enabled: true
+  Max: 131
+  AllowURI: true
+  URISchemes:
+  - http
+  - https
+
+# Prefer *_filter over *_action.
+# Supports --auto-correct
+Rails/ActionFilter:
+  Description: 'Enforces consistent use of action filter methods.'
+  Enabled: true
+  EnforcedStyle: filter
+  SupportedStyles:
+  - action
+  - filter
+  Include:
+  - app/controllers/**/*.rb
+
+# Supports --auto-correct
+Rails/Delegate:
+  Description: Prefer delegate method for delegations.
+  Enabled: true
+
+Rails/HasAndBelongsToMany:
+  Description: 'Prefer has_many :through to has_and_belongs_to_many.'
+  Enabled: true
+  Include:
+  - app/models/**/*.rb
+
+Rails/Output:
+  Description: 'Checks for calls to puts, print, etc.'
+  Enabled: true
+  Include:
+  - app/**/*.rb
+  - config/**/*.rb
+  - db/**/*.rb
+  - lib/**/*.rb
+  Exclude: # Only place files here that we explicitly call from the command line only.
+  - db/migrate/**/*.rb # We should not need this, we should be using 'say' instead of 'put'
+  - db/seeds.rb
+  - db/seeds/**/*.rb
+
+Rails/ReadWriteAttribute:
+  Description: 'Checks for read_attribute(:attr) and write_attribute(:attr, val).'
+  Enabled: true
+  Include:
+  - app/models/**/*.rb
+
+Rails/ScopeArgs:
+  Description: Checks the arguments of ActiveRecord scopes.
+  Enabled: true
+  Include:
+  - app/models/**/*.rb
+
+# Supports --auto-correct
+Style/AccessModifierIndentation:
+  Description: Check indentation of private/protected visibility modifiers.
+  Enabled: true
+  EnforcedStyle: indent
+  SupportedStyles:
+  - outdent
+  - indent
+
+# Supports --auto-correct
+Style/Alias:
+  Description: 'Use alias_method instead of alias.'
+  Enabled: true
+
+Style/ArrayJoin:
+  Description: 'Use Array#join instead of Array#*.'
+  Enabled: true
+
+Style/AsciiComments:
+  Description: 'Use only ascii symbols in comments.'
+  Enabled: true
+
+Style/AsciiIdentifiers:
+  Description: 'Use only ascii symbols in identifiers.'
+  Enabled: true
+
+# Supports --auto-correct
+Style/Attr:
+  Description: 'Checks for uses of Module#attr.'
+  Enabled: true
+
+Style/BeginBlock:
+  Description: 'Avoid the use of BEGIN blocks.'
+  Enabled: true
+
+# Supports --auto-correct
+Style/BlockComments:
+  Description: 'Do not use block comments.'
+  Enabled: true
+
+Style/CaseEquality:
+  Description: 'Avoid explicit use of the case equality operator(===).'
+  Enabled: true
+
+Style/ClassAndModuleCamelCase:
+  Description: 'Use CamelCase for classes and modules.'
+  Enabled: true
+
+Style/CommentAnnotation:
+  Description: 'Checks formatting of special comments (TODO, FIXME, OPTIMIZE, HACK, REVIEW).'
+  Enabled: true
+  Keywords:
+  - TODO
+  - FIXME
+  - OPTIMIZE
+  - HACK
+  - REVIEW
+
+# Supports --auto-correct
+Style/CommentIndentation:
+  Description: Indentation of comments.
+  Enabled: true
+
+# Supports --auto-correct
+Style/DefWithParentheses:
+  Description: 'Use def with parentheses when there are arguments.'
+  Enabled: true
+
+# Supports --auto-correct
+Style/DotPosition:
+  Description: 'Checks the position of the dot in multi-line method calls.'
+  Enabled: true
+  EnforcedStyle: leading
+  SupportedStyles:
+  - leading
+  - trailing
+
+# Supports --auto-correct
+Style/ElseAlignment:
+  Description: Align elses and elsifs correctly.
+  Enabled: true
+
+# Supports --auto-correct
+Style/EmptyLineBetweenDefs:
+  Description: 'Use empty lines between defs.'
+  Enabled: true
+  AllowAdjacentOneLineDefs: false
+
+# Supports --auto-correct
+Style/EmptyLines:
+  Description: "Don't use several empty lines in a row."
+  Enabled: true
+
+# Supports --auto-correct
+Style/EmptyLinesAroundAccessModifier:
+  Description: "Keep blank lines around access modifiers."
+  Enabled: true
+
+# Supports --auto-correct
+Style/EmptyLinesAroundBlockBody:
+  Description: Keeps track of empty lines around block bodies.
+  Enabled: true
+  EnforcedStyle: no_empty_lines
+  SupportedStyles:
+  - empty_lines
+  - no_empty_lines
+
+# Supports --auto-correct
+Style/EmptyLinesAroundClassBody:
+  Description: "Keeps track of empty lines around class bodies."
+  Enabled: true
+  EnforcedStyle: no_empty_lines
+  SupportedStyles:
+  - empty_lines
+  - no_empty_lines
+
+# Supports --auto-correct
+Style/EmptyLinesAroundMethodBody:
+  Description: "Keeps track of empty lines around method bodies."
+  Enabled: true
+
+# Supports --auto-correct
+Style/EmptyLinesAroundModuleBody:
+  Description: Keeps track of empty lines around module bodies.
+  Enabled: true
+  EnforcedStyle: no_empty_lines
+  SupportedStyles:
+  - empty_lines
+  - no_empty_lines
+
+# Supports --auto-correct
+Style/EmptyLiteral:
+  Description: 'Prefer literals to Array.new/Hash.new/String.new.'
+  Enabled: true
+
+Style/EndBlock:
+  Description: 'Avoid the use of END blocks.'
+  Enabled: true
+
+Style/EndOfLine:
+  Description: 'Use Unix-style line endings.'
+  Enabled: true
+
+Style/EvenOdd:
+  Description: 'Favor the use of Fixnum#even? && Fixnum#odd?'
+  Enabled: true
+
+# Supports --auto-correct
+Style/IndentArray:
+  Description: Checks the indentation of the first element in an array literal.
+  Enabled: true
+
+# Supports --auto-correct
+Style/TrailingBlankLines:
+  Description: 'Checks trailing blank lines and final newline.'
+  Enabled: true
+  EnforcedStyle: final_newline
+  SupportedStyles:
+  - final_newline
+  - final_blank_line
+
+Style/FlipFlop:
+  Description: 'Checks for flip flops'
+  Enabled: true
+
+Style/For:
+  Description: 'Checks use of for or each in multiline loops.'
+  Enabled: true
+  EnforcedStyle: each
+  SupportedStyles:
+  - for
+  - each
+
+Style/IfWithSemicolon:
+  Description: Do not use if x; .... Use the ternary operator instead.
+  Enabled: true
+
+# Supports --auto-correct
+Style/IndentationConsistency:
+  Description: 'Keep indentation straight.'
+  Enabled: true
+
+# Supports --auto-correct
+Style/IndentationWidth:
+  Description: 'Use 2 spaces for indentation.'
+  Enabled: true
+  Width: 2
+
+# Supports --auto-correct
+Style/LambdaCall:
+  Description: Use lambda.call(...) instead of lambda.(...).
+  Enabled: true
+  EnforcedStyle: call
+  SupportedStyles:
+  - call
+  - braces
+
+# Supports --auto-correct
+Style/MethodCallParentheses:
+  Description: 'Do not use parentheses for method calls with no arguments.'
+  Enabled: true
+
+# Supports --auto-correct
+Style/MethodDefParentheses:
+  Description: Checks if the method definitions have or don't have parentheses.
+  Enabled: true
+  EnforcedStyle: require_parentheses
+  SupportedStyles:
+  - require_parentheses
+  - require_no_parentheses
+
+Style/MultilineBlockChain:
+  Description: Avoid multi-line chains of blocks.
+  Enabled: true
+
+# Supports --auto-correct
+Style/MultilineIfThen:
+  Description: 'Do not use then for multi-line if/unless.'
+  Enabled: true
+
+Style/MultilineTernaryOperator:
+  Description: 'Avoid multi-line ?: (the ternary operator); use if/unless instead.'
+  Enabled: true
+
+Style/NestedTernaryOperator:
+  Description: Use one expression per branch in a ternary operator.
+  Enabled: true
+
+# Supports --auto-correct
+Style/Not:
+  Description: 'Use ! instead of not.'
+  Enabled: true
+
+Style/OpMethod:
+  Description: 'When defining binary operators, name the argument other.'
+  Enabled: true
+
+# Supports --auto-correct
+Style/Proc:
+  Description: 'Use proc instead of Proc.new.'
+  Enabled: true
+
+# Supports --auto-correct
+Style/SingleLineMethods:
+  Description: Avoid single-line methods.
+  Enabled: true
+  AllowIfMethodIsEmpty: true
+
+# Supports --auto-correct
+Style/SpaceAfterColon:
+  Description: 'Use spaces after colons.'
+  Enabled: true
+
+# Supports --auto-correct
+Style/SpaceAfterComma:
+  Description: 'Use spaces after commas.'
+  Enabled: true
+
+# Supports --auto-correct
+Style/SpaceAfterControlKeyword:
+  Description: 'Use spaces after if/elsif/unless/while/until/case/when.'
+  Enabled: true
+
+# Supports --auto-correct
+Style/SpaceAfterMethodName:
+  Description: 'Do not put a space between a method name and the opening parenthesis in a method definition.'
+  Enabled: true
+
+# Supports --auto-correct
+Style/SpaceAfterNot:
+  Description: Tracks redundant space after the ! operator.
+  Enabled: true
+
+# Supports --auto-correct
+Style/SpaceAfterSemicolon:
+  Description: Use spaces after semicolons.
+  Enabled: true
+
+# Supports --auto-correct
+Style/SpaceAroundEqualsInParameterDefault:
+  Description: "Checks that the equals signs in parameter default assignments have or don't have surrounding space depending on configuration."
+  Enabled: true
+  EnforcedStyle: space
+  SupportedStyles:
+  - space
+  - no_space
+
+# Supports --auto-correct
+Style/SpaceAroundOperators:
+  Description: 'Use spaces around operators.'
+  Enabled: true
+
+# Supports --auto-correct
+Style/SpaceBeforeModifierKeyword:
+  Description: 'Put a space before the modifier keyword.'
+  Enabled: true
+
+# Supports --auto-correct
+Style/SpaceInsideBrackets:
+  Description: 'No spaces after [ or before ].'
+  Enabled: true
+
+# Supports --auto-correct
+Style/SpaceInsideHashLiteralBraces:
+  Description: "Use spaces inside hash literal braces - or don't."
+  Enabled: true
+  EnforcedStyle: space
+  EnforcedStyleForEmptyBraces: no_space
+  SupportedStyles:
+  - space
+  - no_space
+
+# Supports --auto-correct
+Style/SpaceInsideParens:
+  Description: 'No spaces after ( or before ).'
+  Enabled: true
+
+# Supports --auto-correct
+Style/Tab:
+  Description: 'No hard tabs.'
+  Enabled: true
+
+# Supports --auto-correct
+Style/TrailingComma:
+  Description: Checks for trailing comma in parameter lists and literals.
+  Enabled: true
+  EnforcedStyleForMultiline: no_comma
+  SupportedStyles:
+  - comma
+  - no_comma
+
+# Supports --auto-correct
+Style/TrailingWhitespace:
+  Description: 'Avoid trailing whitespace.'
+  Enabled: true
+
+Style/UnlessElse:
+  Description: Do not use unless with else. Rewrite these with the positive case first.
+  Enabled: true
+
+# Supports --auto-correct
+Style/VariableInterpolation:
+  Description: "Don't interpolate global, instance and class variables directly in strings."
+  Enabled: true
+
+# Supports --auto-correct
+Style/WhenThen:
+  Description: Use when x then ... for one-line cases.
+  Enabled: true
+
+# Supports --auto-correct
+Style/WhileUntilDo:
+  Description: Checks for redundant do after while or until.
+  Enabled: true
+
+Style/WhileUntilModifier:
+  Description: Favor modifier while/until usage when you have a single-line body.
+  Enabled: true
+  MaxLineLength: 79

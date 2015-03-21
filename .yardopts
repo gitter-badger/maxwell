@@ -1,0 +1,4 @@
+{app,config,lib}/**/*.rb ext/**/*.c
+--private
+--protected
+--markup markdown

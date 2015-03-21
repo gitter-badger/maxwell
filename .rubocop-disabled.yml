@@ -1,0 +1,27 @@
+# We use yard to enforce documentation because it is better than Rubocop's enforcement.
+Style/Documentation:
+  Description: Document classes and non-namespace modules.
+  Enabled: false
+
+# If enabled, would require us to use the UTF-8 file header comment.
+Style/Encoding:
+  Description: 'Use UTF-8 as the source file encoding.'
+  StyleGuide: https://github.com/bbatsov/ruby-style-guide#utf-8
+  Enabled: false
+  EnforcedStyle: always
+  SupportedStyles:
+  - when_needed
+  - always
+
+# If enabled, would not allow us to align code with spaces.
+Style/ExtraSpacing:
+  Description: Do not use unnecessary spacing.
+  Enabled: false
+
+# If enabled, would require us to put underscores in our numbers, ie 1_000 for one
+# thousand.
+# Supports --auto-correct
+Style/NumericLiterals:
+  Description: Add underscores to large numeric literals to improve their readability.
+  StyleGuide: https://github.com/bbatsov/ruby-style-guide#underscores-in-numerics
+  Enabled: false

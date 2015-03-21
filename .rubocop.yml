@@ -1,0 +1,13 @@
+inherit_from:
+  - .rubocop-enabled.yml
+  - .rubocop-disabled.yml
+
+#### Cop exceptions
+
+AllCops:
+  Exclude:
+    - vendor/**/* # We're not in control of these files
+    - db/schema.rb # Since this is an auto-generated file
+    - lib/generators/**/* # Rubocop cannot handle generator template files
+    - bin/**/* # We're not in control of these files
+  RunRailsCops: true

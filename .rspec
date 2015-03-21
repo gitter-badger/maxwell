@@ -1,0 +1,7 @@
+--profile
+--color
+--format progress
+--format documentation
+--out rspec-output.txt
+--deprecation-out rspec-deprecation.txt
+--require spec_helper
