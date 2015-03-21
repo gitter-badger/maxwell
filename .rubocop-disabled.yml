@@ -1,3 +1,16 @@
+# Type 'Metrics' (8):
+Metrics/AbcSize:
+  Description: 'A calculated magnitude based on number of assignments, branches, and conditions.'
+  Enabled: false
+  Max: 15
+
+Metrics/MethodLength:
+  Description: Avoid methods longer than 10 lines of code.
+  StyleGuide: https://github.com/bbatsov/ruby-style-guide#short-methods
+  Enabled: false
+  CountComments: false
+  Max: 10
+
 # We use yard to enforce documentation because it is better than Rubocop's enforcement.
 Style/Documentation:
   Description: Document classes and non-namespace modules.
@@ -24,4 +37,9 @@ Style/ExtraSpacing:
 Style/NumericLiterals:
   Description: Add underscores to large numeric literals to improve their readability.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#underscores-in-numerics
+  Enabled: false
+
+# Supports --auto-correct
+Style/SingleSpaceBeforeFirstArg:
+  Description: 'Checks that exactly one space is used between a method name and the first argument for method calls without parentheses.'
   Enabled: false
