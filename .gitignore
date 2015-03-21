@@ -20,3 +20,6 @@
 # Ignore yardoc documentation
 /.yardoc
 /doc
+
+# Ignore simplecov generated files
+/coverage/*
