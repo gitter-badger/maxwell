@@ -1,5 +1,13 @@
 // Core
 //= require jquery2
-//= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
+//
+// jQuery Plugins
+//= require iCheck/icheck.min
+
+$(function() {
+  $('.icheck input').iCheck({
+    checkboxClass: 'icheckbox_square-blue',
+    radioClass: 'iradio_square-blue'
+  });
+});
