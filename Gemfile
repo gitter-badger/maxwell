@@ -35,6 +35,7 @@ group :development, :test do
 
   # Linting
   gem 'rubocop', '0.29.1', require: false
+  gem 'scss-lint', '0.35.0', require: false
 
   # Documentation
   gem 'yard', '0.8.7.6', require: false
