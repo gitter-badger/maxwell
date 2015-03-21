@@ -1,0 +1,5 @@
+<%= notifications do |type, text| %>
+  <div class="<%= alert_classes(type) %>">
+    <%= text %>
+  </div>
+<% end %>
