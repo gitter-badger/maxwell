@@ -11,6 +11,7 @@ gem 'coffee-rails', '~> 4.1.0'
 
 gem 'jquery-rails', '4.0.3'
 gem 'turbolinks', '2.5.3'
+gem 'jquery-turbolinks', '2.1.0'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
@@ -22,6 +23,9 @@ gem 'passenger', '5.0.4'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+gem 'devise', '3.4.1'
+gem 'font-awesome-sass'
 
 group :development do
   gem 'better_errors', '2.1.1'
@@ -35,6 +39,7 @@ group :development, :test do
 
   # Linting
   gem 'rubocop', '0.29.1', require: false
+  gem 'scss-lint', '0.35.0', require: false
 
   # Documentation
   gem 'yard', '0.8.7.6', require: false

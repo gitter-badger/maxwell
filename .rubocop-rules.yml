@@ -186,7 +186,7 @@ Lint/Void:
 Metrics/AbcSize:
   Description: A calculated magnitude based on number of assignments, branches, and
     conditions.
-  Enabled: true
+  Enabled: false
   Max: 15
 
 Metrics/BlockNesting:
@@ -220,7 +220,7 @@ Metrics/LineLength:
 Metrics/MethodLength:
   Description: Avoid methods longer than 10 lines of code.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#short-methods
-  Enabled: true
+  Enabled: false
   CountComments: false
   Max: 10
 
@@ -528,7 +528,7 @@ Style/DeprecatedHashMethods:
 
 Style/Documentation:
   Description: Document classes and non-namespace modules.
-  Enabled: true
+  Enabled: false
 
 # Supports --auto-correct
 Style/DotPosition:
@@ -1058,7 +1058,7 @@ Style/SingleLineMethods:
 Style/SingleSpaceBeforeFirstArg:
   Description: Checks that exactly one space is used between a method name and the first
     argument for method calls without parentheses.
-  Enabled: true
+  Enabled: false
 
 # Supports --auto-correct
 Style/SpaceAfterColon:
