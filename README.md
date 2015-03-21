@@ -1,4 +1,4 @@
-Maxwell is a media tracking tool. A simple tool to allow you to detail you watching media consumption.
+Maxwell is a media tracking tool which allows you to detail your media consumption.
 
 > **The Chief**: Can we put a pen in this, please... and go back to Max's extraordinary detailed report?
 >
