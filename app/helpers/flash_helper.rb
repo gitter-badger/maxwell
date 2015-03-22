@@ -7,10 +7,15 @@ module FlashHelper
     return unless flash
     content = ''
     flash.each do |key, message|
+      next if accepted_keys.include?(key.to_s)
       message = [message] unless message.is_a? Array
       message.each { |text| content << capture(key, text, &block) }
     end
     content.html_safe
+  end
+
+  def accepted_keys
+    %w(error notice alert success warning danger info)
   end
 
   def alert_classes(type)

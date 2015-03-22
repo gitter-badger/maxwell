@@ -26,26 +26,7 @@
 
     <ul class="sidebar-menu">
       <li class="header">MAIN NAVIGATION</li>
-      <li class="treeview">
-        <%= link_to root_url do %>
-          <%= icon('dashboard') %>
-          <span>Dashboard</span>
-        <% end %>
-      </li>
-
-      <li class="treeview">
-        <%= link_to '#' do %>
-          <%= icon('film') %>
-          <span>Movies</span>
-        <% end %>
-      </li>
-
-      <li class="treeview">
-        <%= link_to '#' do %>
-          <%= icon('eye') %>
-          <span>Viewings</span>
-        <% end %>
-      </li>
     </ul>
+    <%= render_navigation %>
   </section>
 </aside>

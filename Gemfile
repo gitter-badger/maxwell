@@ -24,6 +24,7 @@ gem 'passenger', '5.0.4'
 
 gem 'devise', '3.4.1'
 gem 'font-awesome-sass'
+gem 'simple-navigation', '3.14.0'
 
 group :development do
   gem 'better_errors', '2.1.1'
