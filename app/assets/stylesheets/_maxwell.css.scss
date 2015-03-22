@@ -1,0 +1,18 @@
+@import url(//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic);
+
+@import 'bootstrap/mixins';
+@import 'bootstrap/variables';
+
+// CORE
+// -----------------------------------
+@import 'maxwell/variables';
+@import 'maxwell/core';
+@import 'maxwell/mixins';
+
+@import 'maxwell/components';
+@import 'maxwell/pages';
+@import 'maxwell/plugins';
+@import 'maxwell/miscellaneous';
+@import 'maxwell/print';
+
+@import 'maxwell/theme/skin-blue';

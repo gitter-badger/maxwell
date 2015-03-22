@@ -1,0 +1,179 @@
+// Component: Button
+// -----------------
+
+.btn {
+  @include box-shadow($btn-boxshadow);
+  border: 1px solid transparent;
+  border-radius: $btn-border-radius;
+
+  &.uppercase { text-transform: uppercase; }
+
+  // Flat buttons
+  &.btn-flat {
+    @include box-shadow(none);
+    border-radius: 0;
+    border-width: 1px;
+  }
+
+  // Active state
+  &:active {
+    @include box-shadow(inset 0 3px 5px rgba(0, 0, 0, 0.125));
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  // input file btn
+  &.btn-file {
+    overflow: hidden;
+    position: relative;
+
+    > input[type='file'] {
+      @include opacity(0);
+      background: #fff;
+      cursor: inherit;
+      display: block;
+      font-size: 100px;
+      min-height: 100%;
+      min-width: 100%;
+      outline: none;
+      position: absolute;
+      right: 0;
+      text-align: right;
+      top: 0;
+    }
+  }
+}
+
+//Button color variations
+.btn-default {
+  background-color: #f4f4f4;
+  border-color: #ddd;
+  color: #444;
+
+  &:hover,
+  &:active,
+  &.hover {
+    background-color: darken(#f4f4f4, 5%) !important;
+  }
+}
+
+.btn-primary {
+  background-color: $light-blue;
+  border-color: darken($light-blue, 5%);
+
+  &:hover,
+  &:active,
+  &.hover {
+    background-color: darken($light-blue, 5%);
+  }
+}
+
+.btn-success {
+  background-color: $green;
+  border-color: darken($green, 5%);
+
+  &:hover,
+  &:active,
+  &.hover {
+    background-color: darken($green, 5%);
+  }
+}
+
+.btn-info {
+  background-color: $aqua;
+  border-color: darken($aqua, 5%);
+
+  &:hover,
+  &:active,
+  &.hover {
+    background-color: darken($aqua, 5%);
+  }
+}
+
+.btn-danger {
+  background-color: $red;
+  border-color: darken($red, 5%);
+
+  &:hover,
+  &:active,
+  &.hover {
+    background-color: darken($red, 5%);
+  }
+}
+
+.btn-warning {
+  background-color: $yellow;
+  border-color: darken($yellow, 5%);
+
+  &:hover,
+  &:active,
+  &.hover {
+    background-color: darken($yellow, 5%);
+  }
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+
+  &:hover,
+  &:focus,
+  &:active {
+    border-color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+.btn-link {
+  @include box-shadow(none);
+}
+
+//General .btn with bg class
+.btn[class*='bg-']:hover {
+  @include box-shadow(inset 0 0 100px rgba(0, 0, 0, 0.2));
+}
+// Application buttons
+.btn-app {
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  color: #666;
+  font-size: 12px;
+  height: 60px;
+  margin: 0 0 10px 10px;
+  min-width: 80px;
+  padding: 15px 5px;
+  position: relative;
+  text-align: center;
+
+  //Icons within the btn
+  > .fa,
+  > .glyphicon,
+  > .ion {
+    display: block;
+    font-size: 20px;
+  }
+
+  &:hover {
+    background: #f4f4f4;
+    border-color: #aaa;
+    color: #444;
+  }
+
+  &:active,
+  &:focus {
+    @include box-shadow(inset 0 3px 5px rgba(0, 0, 0, 0.125));
+  }
+
+  //The badge
+  > .badge {
+    font-size: 10px;
+    font-weight: 400;
+    position: absolute;
+    right: -10px;
+    top: -3px;
+  }
+}

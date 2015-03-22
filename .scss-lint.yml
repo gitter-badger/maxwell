@@ -1,2 +1,34 @@
 exclude:
   - 'doc/**'
+
+linters:
+  ColorVariable:
+    enabled: false
+
+  ImportantRule:
+    enabled: false
+
+  LeadingZero:
+    style: include_zero
+
+  MergeableSelector:
+    force_nesting: false
+
+  NestingDepth:
+    max_depth: 12 # Should be something more reasonable eventually
+
+  PlaceholderInExtend:
+    enabled: false
+
+  QualifyingElement:
+    allow_element_with_attribute: true
+    allow_element_with_class: true
+
+  SelectorDepth:
+    enabled: false
+
+  SpaceBeforeBrace:
+    allow_single_line_padding: true
+
+  VendorPrefix:
+    enabled: false

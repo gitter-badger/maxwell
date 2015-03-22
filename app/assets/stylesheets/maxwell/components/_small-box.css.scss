@@ -1,0 +1,85 @@
+// Component: Small Box
+// --------------------
+
+.small-box {
+  border-radius: 2px;
+  box-shadow: $box-boxshadow;
+  display: block;
+  margin-bottom: 20px;
+  position: relative;
+
+  // content wrapper
+  > .inner { padding: 10px; }
+
+  > .small-box-footer {
+    background: rgba(0, 0, 0, 0.1);
+    color: rgba(255, 255, 255, 0.8);
+    display: block;
+    padding: 3px 0;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    z-index: 10;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.15);
+      color: #fff;
+    }
+  }
+
+  h3 {
+    font-size: 38px;
+    font-weight: bold;
+    margin: 0 0 10px;
+    padding: 0;
+    white-space: nowrap;
+  }
+
+  p {
+    font-size: 15px;
+
+    > small {
+      color: #f9f9f9;
+      display: block;
+      font-size: 13px;
+      margin-top: 5px;
+    }
+  }
+
+  h3,
+  p {
+    z-index: 5px;
+  }
+
+  // the icon
+  .icon {
+    @include transition(all $transition-speed linear);
+    color: rgba(0, 0, 0, 0.15);
+    font-size: 90px;
+    position: absolute;
+    right: 10px;
+    top: -10px;
+    z-index: 0;
+  }
+
+  // Small box hover state
+  &:hover {
+    color: #f9f9f9;
+    text-decoration: none;
+
+    // Animate icons on small box hover
+    .icon {
+      font-size: 95px;
+    }
+  }
+}
+
+@media (max-width: $screen-xs-max) {
+  // No need for icons on very small devices
+  .small-box {
+    text-align: center;
+
+    .icon { display: none; }
+    p { font-size: 12px; }
+  }
+}

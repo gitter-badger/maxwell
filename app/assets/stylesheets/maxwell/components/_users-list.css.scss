@@ -1,0 +1,39 @@
+// Component: Users List
+// ---------------------
+
+.users-list {
+  @extend .list-unstyled;
+
+  > li {
+    float: left;
+    padding: 10px;
+    text-align: center;
+    width: 25%;
+
+    > img {
+      border-radius: 50%;
+      height: auto;
+      max-width: 100%;
+    }
+  }
+}
+
+.users-list-name,
+.users-list-date {
+  display: block;
+}
+
+.users-list-name {
+  color: #444;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  &:hover { color: #999; }
+}
+
+.users-list-date {
+  color: #999;
+  font-size: 12px;
+}

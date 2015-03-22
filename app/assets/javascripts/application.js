@@ -14,7 +14,7 @@
 
 $(function() {
   $('.icheck input').iCheck({
-    checkboxClass: 'icheckbox_square-blue',
-    radioClass: 'iradio_square-blue'
+    checkboxClass: 'icheckbox-square-blue',
+    radioClass: 'iradio-square-blue'
   });
 });

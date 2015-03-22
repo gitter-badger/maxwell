@@ -23,7 +23,8 @@ gem 'passenger', '5.0.4'
 # gem 'capistrano-rails', group: :development
 
 gem 'devise', '3.4.1'
-gem 'font-awesome-sass'
+gem 'bootstrap-sass', '3.3.4.1'
+gem 'font-awesome-sass', '4.3.2.1'
 gem 'simple-navigation', '3.14.0'
 
 group :development do
