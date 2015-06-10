@@ -1,7 +1,7 @@
 # We use this file as an easy check for when cops are changed
 #
-# Available cops (203) + config for joshminnie/maxwell:
-# Type 'Lint' (37):
+# Available cops (226) + config for joshminnie/maxwell
+# Type 'Lint' (41):
 Lint/AmbiguousOperator:
   Description: Checks for ambiguous operators in the first argument of a method invocation
     without parentheses.
@@ -33,6 +33,7 @@ Lint/Debugger:
   Description: Check for debugger calls.
   Enabled: true
 
+# Supports --auto-correct
 Lint/DefEndAlignment:
   Description: Align ends corresponding to defs correctly.
   Enabled: true
@@ -40,6 +41,7 @@ Lint/DefEndAlignment:
   SupportedStyles:
   - start_of_line
   - def
+  AutoCorrect: false
 
 # Supports --auto-correct
 Lint/DeprecatedClassMethods:
@@ -48,6 +50,10 @@ Lint/DeprecatedClassMethods:
 
 Lint/DuplicateMethods:
   Description: Check for duplicate methods calls.
+  Enabled: true
+
+Lint/EachWithObjectArgument:
+  Description: Check for immutable argument given to each_with_object.
   Enabled: true
 
 Lint/ElseLayout:
@@ -62,6 +68,7 @@ Lint/EmptyInterpolation:
   Description: Checks for empty string interpolation.
   Enabled: true
 
+# Supports --auto-correct
 Lint/EndAlignment:
   Description: Align ends correctly.
   Enabled: true
@@ -69,6 +76,7 @@ Lint/EndAlignment:
   SupportedStyles:
   - keyword
   - variable
+  AutoCorrect: false
 
 Lint/EndInMethod:
   Description: END blocks should not be placed inside method definitions.
@@ -96,14 +104,25 @@ Lint/LiteralInCondition:
   Description: Checks of literals used in conditions.
   Enabled: true
 
+# Supports --auto-correct
 Lint/LiteralInInterpolation:
-  Description: Checks for literals used in interpolation.
+  Description: Avoid interpolating literals in strings
   Enabled: true
+  AutoCorrect: false
 
 Lint/Loop:
   Description: Use Kernel#loop with break rather than begin/end/until or begin/end/while
     for post-loop tests.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#loop-with-break
+  Enabled: true
+
+Lint/NestedMethodDefinition:
+  Description: Do not use nested method definitions.
+  StyleGuide: https://github.com/bbatsov/ruby-style-guide#no-nested-methods
+  Enabled: true
+
+Lint/NonLocalExitFromIterator:
+  Description: Do not use return in iterator to cause non-local exit.
   Enabled: true
 
 Lint/ParenthesesAsGroupedExpression:
@@ -139,6 +158,10 @@ Lint/StringConversionInInterpolation:
 
 Lint/UnderscorePrefixedVariableName:
   Description: Do not use prefix `_` for a variable that is used.
+  Enabled: true
+
+Lint/UnneededDisable:
+  Description: Checks for rubocop:disable comments that can be removed.
   Enabled: true
 
 Lint/UnreachableCode:
@@ -182,10 +205,11 @@ Lint/Void:
   Description: Possible use of operator/literal/variable in void context.
   Enabled: true
 
-# Type 'Metrics' (8):
+# Type 'Metrics' (9):
 Metrics/AbcSize:
   Description: A calculated magnitude based on number of assignments, branches, and
     conditions.
+  Reference: http://c2.com/cgi/wiki?AbcMetric
   Enabled: false
   Max: 15
 
@@ -224,6 +248,12 @@ Metrics/MethodLength:
   CountComments: false
   Max: 10
 
+Metrics/ModuleLength:
+  Description: Avoid modules longer than 100 lines of code.
+  Enabled: true
+  CountComments: false
+  Max: 100
+
 Metrics/ParameterLists:
   Description: Avoid parameter lists longer than three or four parameters.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#too-many-params
@@ -236,7 +266,48 @@ Metrics/PerceivedComplexity:
   Enabled: true
   Max: 7
 
-# Type 'Rails' (8):
+# Type 'Performance' (6):
+# Supports --auto-correct
+Performance/Count:
+  Description: Use `count` instead of `select...size`, `reject...size`, `select...count`,
+    `reject...count`, `select...length`, and `reject...length`.
+  Enabled: true
+
+# Supports --auto-correct
+Performance/Detect:
+  Description: Use `detect` instead of `select.first`, `find_all.first`, `select.last`,
+    and `find_all.last`.
+  Reference: https://github.com/JuanitoFatas/fast-ruby#enumerabledetect-vs-enumerableselectfirst-code
+  Enabled: true
+
+# Supports --auto-correct
+Performance/FlatMap:
+  Description: Use `Enumerable#flat_map` instead of `Enumerable#map...Array#flatten(1)`
+    or `Enumberable#collect..Array#flatten(1)`
+  Reference: https://github.com/JuanitoFatas/fast-ruby#enumerablemaparrayflatten-vs-enumerableflat_map-code
+  Enabled: true
+  EnabledForFlattenWithoutParams: false
+
+# Supports --auto-correct
+Performance/ReverseEach:
+  Description: Use `reverse_each` instead of `reverse.each`.
+  Reference: https://github.com/JuanitoFatas/fast-ruby#enumerablereverseeach-vs-enumerablereverse_each-code
+  Enabled: true
+
+# Supports --auto-correct
+Performance/Sample:
+  Description: Use `sample` instead of `shuffle.first`, `shuffle.last`, and `shuffle[Fixnum]`.
+  Reference: https://github.com/JuanitoFatas/fast-ruby#arrayshufflefirst-vs-arraysample-code
+  Enabled: true
+
+# Supports --auto-correct
+Performance/Size:
+  Description: Use `size` instead of `count` for counting the number of elements in
+    `Array` and `Hash`.
+  Reference: https://github.com/JuanitoFatas/fast-ruby#arraycount-vs-arraysize-code
+  Enabled: true
+
+# Type 'Rails' (12):
 # Supports --auto-correct
 Rails/ActionFilter:
   Description: Enforces consistent use of action filter methods.
@@ -248,6 +319,15 @@ Rails/ActionFilter:
   Include:
   - app/controllers/**/*.rb
 
+Rails/Date:
+  Description: Checks the correct usage of date aware methods, such as Date.today, Date.current
+    etc.
+  Enabled: true
+  EnforcedStyle: always
+  SupportedStyles:
+  - always
+  - acceptable
+
 Rails/DefaultScope:
   Description: Checks if the argument passed to default_scope is a block.
   Enabled: true
@@ -258,6 +338,20 @@ Rails/DefaultScope:
 Rails/Delegate:
   Description: Prefer delegate method for delegations.
   Enabled: true
+
+# Supports --auto-correct
+Rails/FindBy:
+  Description: Prefer find_by over where.first.
+  Enabled: true
+  Include:
+  - app/models/**/*.rb
+
+# Supports --auto-correct
+Rails/FindEach:
+  Description: Prefer all.find_each over all.find.
+  Enabled: true
+  Include:
+  - app/models/**/*.rb
 
 Rails/HasAndBelongsToMany:
   Description: Prefer has_many :through to has_and_belongs_to_many.
@@ -274,9 +368,9 @@ Rails/Output:
   - db/**/*.rb
   - lib/**/*.rb
   Exclude:
-  - db/migrate/**/*.rb
-  - db/seeds.rb
-  - db/seeds/**/*.rb
+  - "/Users/josh/Projects/Personal/Maxwell/db/migrate/**/*.rb"
+  - "/Users/josh/Projects/Personal/Maxwell/db/seeds.rb"
+  - "/Users/josh/Projects/Personal/Maxwell/db/seeds/**/*.rb"
 
 # Supports --auto-correct
 Rails/ReadWriteAttribute:
@@ -291,13 +385,23 @@ Rails/ScopeArgs:
   Include:
   - app/models/**/*.rb
 
+Rails/TimeZone:
+  Description: Checks the correct usage of time zone aware methods.
+  StyleGuide: https://github.com/bbatsov/rails-style-guide#time
+  Reference: http://danilenko.org/2012/7/6/rails_timezones
+  Enabled: true
+  EnforcedStyle: always
+  SupportedStyles:
+  - always
+  - acceptable
+
 Rails/Validation:
   Description: Use validates :attribute, hash of validations.
   Enabled: true
   Include:
   - app/models/**/*.rb
 
-# Type 'Style' (150):
+# Type 'Style' (158):
 # Supports --auto-correct
 Style/AccessModifierIndentation:
   Description: Check indentation of private/protected visibility modifiers.
@@ -357,6 +461,7 @@ Style/AndOr:
   - always
   - conditionals
 
+# Supports --auto-correct
 Style/ArrayJoin:
   Description: Use Array#join instead of Array#*.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#array-join
@@ -377,6 +482,11 @@ Style/Attr:
   Description: Checks for uses of Module#attr.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#attr
   Enabled: true
+
+Style/AutoResourceCleanup:
+  Description: Suggests the usage of an auto resource cleanup version of a method (if
+    available).
+  Enabled: false
 
 # Supports --auto-correct
 Style/BarePercentLiterals:
@@ -400,15 +510,39 @@ Style/BlockComments:
   Enabled: true
 
 # Supports --auto-correct
-Style/BlockEndNewline:
-  Description: Put end statement of multiline block on its own line.
-  Enabled: true
-
-# Supports --auto-correct
-Style/Blocks:
+Style/BlockDelimiters:
   Description: Avoid using {...} for multi-line blocks (multiline chaining is always
     ugly). Prefer {...} over do...end for single-line blocks.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#single-line-blocks
+  Enabled: true
+  EnforcedStyle: line_count_based
+  SupportedStyles:
+  - line_count_based
+  - semantic
+  ProceduralMethods:
+  - benchmark
+  - bm
+  - bmbm
+  - create
+  - each_with_object
+  - measure
+  - new
+  - realtime
+  - tap
+  - with_object
+  FunctionalMethods:
+  - let
+  - let!
+  - subject
+  - watch
+  IgnoredMethods:
+  - lambda
+  - proc
+  - it
+
+# Supports --auto-correct
+Style/BlockEndNewline:
+  Description: Put end statement of multiline block on its own line.
   Enabled: true
 
 # Supports --auto-correct
@@ -426,6 +560,7 @@ Style/CaseEquality:
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#no-case-equality
   Enabled: true
 
+# Supports --auto-correct
 Style/CaseIndentation:
   Description: Indentation of when in a case/when/[else/]end.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#indent-when-to-case
@@ -467,12 +602,17 @@ Style/ClassCheck:
 # Supports --auto-correct
 Style/ClassMethods:
   Description: Use self when defining module/class methods.
-  StyleGuide: https://github.com/bbatsov/ruby-style-guide#def-self-singletons
+  StyleGuide: https://github.com/bbatsov/ruby-style-guide#def-self-class-methods
   Enabled: true
 
 Style/ClassVars:
   Description: Avoid the use of class variables.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#no-class-vars
+  Enabled: true
+
+# Supports --auto-correct
+Style/ClosingParenthesisIndentation:
+  Description: Checks the indentation of hanging closing parentheses.
   Enabled: true
 
 # Supports --auto-correct
@@ -493,6 +633,19 @@ Style/ColonMethodCall:
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#double-colons
   Enabled: true
 
+# Supports --auto-correct
+Style/CommandLiteral:
+  Description: Use `` or %x around command literals.
+  StyleGuide: https://github.com/bbatsov/ruby-style-guide#percent-x
+  Enabled: true
+  EnforcedStyle: backticks
+  SupportedStyles:
+  - backticks
+  - percent_x
+  - mixed
+  AllowInnerBackticks: false
+
+# Supports --auto-correct
 Style/CommentAnnotation:
   Description: Checks formatting of special comments (TODO, FIXME, OPTIMIZE, HACK, REVIEW).
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#annotate-keywords
@@ -513,6 +666,13 @@ Style/ConstantName:
   Description: Constants should use SCREAMING_SNAKE_CASE.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#screaming-snake-case
   Enabled: true
+
+# Supports --auto-correct
+Style/Copyright:
+  Description: Include a copyright notice in each file before any code.
+  Enabled: false
+  Notice: "^Copyright (\\(c\\) )?2[0-9]{3} .+"
+  AutocorrectNotice: ''
 
 # Supports --auto-correct
 Style/DefWithParentheses:
@@ -554,9 +714,15 @@ Style/ElseAlignment:
   Description: Align elses and elsifs correctly.
   Enabled: true
 
+# Supports --auto-correct
 Style/EmptyElse:
   Description: Avoid empty else-clauses.
   Enabled: true
+  EnforcedStyle: both
+  SupportedStyles:
+  - empty
+  - nil
+  - both
 
 # Supports --auto-correct
 Style/EmptyLineBetweenDefs:
@@ -613,6 +779,7 @@ Style/EmptyLiteral:
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#literal-array-hash
   Enabled: true
 
+# Supports --auto-correct
 Style/Encoding:
   Description: Use UTF-8 as the source file encoding.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#utf-8
@@ -621,6 +788,7 @@ Style/Encoding:
   SupportedStyles:
   - when_needed
   - always
+  AutoCorrectEncodingComment: "# encoding: utf-8"
 
 Style/EndBlock:
   Description: Avoid the use of END blocks.
@@ -686,6 +854,7 @@ Style/FormatString:
 Style/GlobalVars:
   Description: Do not introduce global variables.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#instance-vars
+  Reference: http://www.zenspider.com/Languages/Ruby/QuickRef.html
   Enabled: true
   AllowedVariables: []
 
@@ -704,8 +873,11 @@ Style/HashSyntax:
   EnforcedStyle: ruby19
   SupportedStyles:
   - ruby19
+  - ruby19_no_mixed_keys
   - hash_rockets
+  UseHashRocketsWithSymbolValues: false
 
+# Supports --auto-correct
 Style/IfUnlessModifier:
   Description: Favor modifier if/unless usage when you have a single-line body.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#if-as-a-modifier
@@ -735,6 +907,10 @@ Style/IndentHash:
 Style/IndentationConsistency:
   Description: Keep indentation straight.
   Enabled: true
+  EnforcedStyle: normal
+  SupportedStyles:
+  - normal
+  - rails
 
 # Supports --auto-correct
 Style/IndentationWidth:
@@ -809,6 +985,17 @@ Style/MethodName:
   SupportedStyles:
   - snake_case
   - camelCase
+
+Style/MissingElse:
+  Description: Require if/case expressions to have an else branches. If enabled, it
+    is recommended that Style/UnlessElse and Style/EmptyElse be enabled. This will conflict
+    with Style/EmptyElse if Style/EmptyElse is configured to style "both"
+  Enabled: false
+  EnforcedStyle: both
+  SupportedStyles:
+  - if
+  - case
+  - both
 
 Style/ModuleFunction:
   Description: Checks for usage of `extend self` in modules.
@@ -909,6 +1096,15 @@ Style/OpMethod:
   Enabled: true
 
 # Supports --auto-correct
+Style/ParallelAssignment:
+  Description: Check for simple usages of parallel assignment. It will only warn when
+    the number of variables matches on both sides of the assignment. This also provides
+    performance benefits
+  StyleGuide: https://github.com/bbatsov/ruby-style-guide#parallel-assignment
+  Reference: https://github.com/JuanitoFatas/fast-ruby#parallel-assignment-vs-sequential-assignment-code
+  Enabled: true
+
+# Supports --auto-correct
 Style/ParenthesesAroundCondition:
   Description: Don't use parentheses around the condition of an if/unless/while.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#no-parens-if
@@ -999,12 +1195,17 @@ Style/RedundantSelf:
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#no-self-unless-required
   Enabled: true
 
+# Supports --auto-correct
 Style/RegexpLiteral:
-  Description: Use %r for regular expressions matching more than `MaxSlashes` '/' characters.
-    Use %r only for regular expressions matching more than `MaxSlashes` '/' character.
+  Description: Use / or %r around regular expressions.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#percent-r
   Enabled: true
-  MaxSlashes: 1
+  EnforcedStyle: slashes
+  SupportedStyles:
+  - slashes
+  - percent_r
+  - mixed
+  AllowInnerSlashes: false
 
 Style/RescueModifier:
   Description: Avoid using rescue in its modifier form.
@@ -1121,6 +1322,9 @@ Style/SpaceAroundOperators:
   Description: Use spaces around operators.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#spaces-operators
   Enabled: true
+  MultiSpaceAllowedForOperators:
+  - "="
+  - "=>"
 
 # Supports --auto-correct
 Style/SpaceBeforeBlockBraces:
@@ -1193,6 +1397,12 @@ Style/SpaceInsideRangeLiteral:
   Enabled: true
 
 # Supports --auto-correct
+Style/SpaceInsideStringInterpolation:
+  Description: Checks for padding/surrounding spaces inside string interpolation.
+  StyleGuide: https://github.com/bbatsov/ruby-style-guide#string-interpolation
+  Enabled: true
+
+# Supports --auto-correct
 Style/SpecialGlobalVars:
   Description: Avoid Perl-style global variables.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#no-cryptic-perlisms
@@ -1229,6 +1439,11 @@ Style/SymbolArray:
   Enabled: false
 
 # Supports --auto-correct
+Style/SymbolLiteral:
+  Description: Use plain symbols instead of string symbols when possible.
+  Enabled: true
+
+# Supports --auto-correct
 Style/SymbolProc:
   Description: Use symbols as procs instead of blocks when possible.
   Enabled: true
@@ -1262,6 +1477,12 @@ Style/TrailingComma:
   - no_comma
 
 # Supports --auto-correct
+Style/TrailingUnderscoreVariable:
+  Description: Checks for the usage of unneeded trailing underscores at the end of parallel
+    variable assignment.
+  Enabled: true
+
+# Supports --auto-correct
 Style/TrailingWhitespace:
   Description: Avoid trailing whitespace.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#no-trailing-whitespace
@@ -1272,9 +1493,10 @@ Style/TrivialAccessors:
   Description: Prefer attr_* methods to trivial readers/writers.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#attr_family
   Enabled: true
-  ExactNameMatch: false
+  ExactNameMatch: true
   AllowPredicates: false
   AllowDSLWriters: false
+  IgnoreClassMethods: false
   Whitelist:
   - to_ary
   - to_a
@@ -1311,12 +1533,6 @@ Style/UnneededPercentQ:
   Enabled: true
 
 # Supports --auto-correct
-Style/UnneededPercentX:
-  Description: Checks for %x when `` would do.
-  StyleGuide: https://github.com/bbatsov/ruby-style-guide#percent-x
-  Enabled: true
-
-# Supports --auto-correct
 Style/VariableInterpolation:
   Description: Don't interpolate global, instance and class variables directly in strings.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#curlies-interpolate
@@ -1343,6 +1559,7 @@ Style/WhileUntilDo:
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#no-multiline-while-do
   Enabled: true
 
+# Supports --auto-correct
 Style/WhileUntilModifier:
   Description: Favor modifier while/until usage when you have a single-line body.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#while-as-a-modifier
@@ -1356,4 +1573,3 @@ Style/WordArray:
   Enabled: true
   MinSize: 0
   WordRegex: !ruby/regexp /\A[\p{Word}]+\z/
-
