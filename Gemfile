@@ -23,6 +23,8 @@ gem 'passenger', '~> 5.0.10'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'simple-navigation', '3.14.0'
+
 group :development do
   gem 'better_errors', '2.1.1'
   gem 'binding_of_caller'
