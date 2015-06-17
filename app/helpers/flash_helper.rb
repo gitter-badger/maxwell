@@ -15,13 +15,13 @@ module FlashHelper
   end
 
   def accepted_keys
-    %w(error notice alert success warning danger info)
+    %w(error notice success warning danger info)
   end
 
   def alert_classes(type)
     classes = ['alert']
     classes << case type.to_s
-               when 'error', 'alert' then 'alert-danger'
+               when 'error' then 'alert-danger'
                when 'notice' then 'alert-warning'
                when 'success' then 'alert-success'
                else 'alert-info'

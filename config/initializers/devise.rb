@@ -265,3 +265,11 @@ Devise.setup do |config|
 end
 
 # rubocop:enable Metrics/LineLength
+
+Rails.application.config.to_prepare do
+  Devise::SessionsController.layout 'devise'
+  Devise::RegistrationsController.layout proc { user_signed_in? ? 'application' : 'devise' }
+  Devise::ConfirmationsController.layout 'devise'
+  Devise::UnlocksController.layout 'devise'
+  Devise::PasswordsController.layout 'devise'
+end
