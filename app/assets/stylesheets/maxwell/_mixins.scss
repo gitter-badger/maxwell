@@ -1,0 +1,87 @@
+//AdminLTE mixins
+//===============
+
+//Changes the color and the hovering properties of the navbar
+@mixin navbar-variant($color, $font-color: rgba(255, 255, 255, 0.8), $hover-color: #f6f6f6, $hover-bg: rgba(0, 0, 0, 0.1)) {
+  background-color: $color;
+
+  //Navbar links
+  .nav > li > a {
+    color: $font-color;
+  }
+
+  .nav > li > a:hover,
+  .nav > li > a:active,
+  .nav > li > a:focus,
+  .nav .open > a,
+  .nav .open > a:hover,
+  .nav .open > a:focus {
+    background: $hover-bg;
+    color: $hover-color;
+  }
+
+  .navbar-custom-menu > .nav { margin-right: 10px; }
+
+  //Add color to the sidebar toggle button
+  .sidebar-toggle {
+    color: $font-color;
+
+    &:hover {
+      background: $hover-bg;
+      color: $hover-color;
+    }
+  }
+}
+
+//Logo color variation
+@mixin logo-variant($bg-color, $color: #fff, $border-bottom-color: transparent, $border-bottom-width: 0) {
+  background-color: $bg-color;
+  color: $color;
+  border-bottom: $border-bottom-width solid $border-bottom-color;
+
+  > a { color: $color; }
+
+  &:hover { background: darken($bg-color, 1%); }
+}
+
+//Box solid color variantion creator
+@mixin box-solid-variant($color, $text-color: #fff) {
+  border: 1px solid $color;
+
+  > .box-header {
+    background: $color;
+    background-color: $color;
+    color: $text-color;
+
+    a,
+    .btn {
+      color: $text-color;
+    }
+  }
+}
+
+//Direct Chat Variant
+@mixin direct-chat-variant($bg-color, $color: #fff) {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 2px;
+
+  .right > .direct-chat-text {
+    background: $bg-color;
+    border-color: $bg-color;
+    color: $color;
+
+    &:after,
+    &:before {
+      border-left-color: $bg-color;
+    }
+  }
+}
+
+//Different radius each side
+@mixin border-radius-alt($top-left, $top-right, $bottom-left, $bottom-right) {
+  border-top-left-radius: $top-left;
+  border-top-right-radius: $top-right;
+  border-bottom-right-radius: $bottom-right;
+  border-bottom-left-radius: $bottom-left;
+}

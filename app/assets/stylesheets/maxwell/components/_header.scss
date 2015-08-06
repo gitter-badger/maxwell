@@ -1,0 +1,242 @@
+// Component: Main Header
+// ----------------------
+
+.main-header {
+  max-height: 100px;
+  position: relative;
+  z-index: 1030;
+
+  //Navbar
+  > .navbar {
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    margin-left: $sidebar-width;
+    min-height: $navbar-height;
+
+    .layout-top-nav & {
+      margin-left: 0 !important;
+    }
+  }
+
+  //Navbar search text input
+  .navbar-search-input {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: transparent;
+
+    &:focus,
+    &:active {
+      background: rgba(255, 255, 255, 0.9);
+      border-color: rgba(0, 0, 0, 0.1) !important;
+    }
+
+    &::-moz-placeholder {
+      color: #ccc;
+      opacity: 1;
+    }
+
+    &:-ms-input-placeholder {
+      color: #ccc;
+    }
+
+    &::-webkit-input-placeholder {
+      color: #ccc;
+    }
+  }
+  //Navbar Right Menu
+  .navbar-custom-menu,
+  .navbar-right {
+    float: right;
+    margin-right: 5px;
+
+    @media (max-width: $screen-sm-max) {
+      a {
+        background: transparent;
+        color: inherit;
+      }
+    }
+  }
+
+  .navbar-right {
+    @media (max-width: $screen-header-collapse) {
+      float: none;
+
+      .navbar-collapse & {
+        margin: 7.5px -15px;
+      }
+
+      > li {
+        border: 0;
+        color: inherit;
+      }
+    }
+  }
+
+  //Navbar toggle button
+  .sidebar-toggle {
+    background-color: transparent;
+    background-image: none;
+    float: left;
+    font-family: fontAwesome;
+    padding: $navbar-padding-vertical $navbar-padding-horizontal;
+    //Add the fontawesome bars icon
+    &:before { content: '\f0c9'; }
+    &:hover { color: #fff; }
+  }
+
+  .sidebar-toggle .icon-bar {
+    display: none;
+  }
+
+  //Navbar User Menu
+  .navbar .nav > li.user > a {
+    > .fa,
+    > .glyphicon,
+    > .ion {
+      margin-right: 5px;
+    }
+  }
+
+  //Labels in navbar
+  .navbar .nav > li > a > .label {
+    font-size: 9px;
+    line-height: 0.9;
+    padding: 2px 3px;
+    position: absolute;
+    right: 7px;
+    text-align: center;
+    top: 9px;
+  }
+
+  //Logo bar
+  .logo {
+    display: block;
+    float: left;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 15px;
+    text-align: center;
+    width: $sidebar-width;
+  }
+  //Navbar Brand. Alternative logo with layout-top-nav
+  .navbar-brand {
+    color: #fff;
+  }
+}
+
+// Content Header
+.content-header {
+  padding: 15px 15px 0;
+  position: relative;
+  // Header Text
+  > h1 {
+    font-size: 24px;
+    margin: 0;
+
+    > small {
+      display: inline-block;
+      font-size: 15px;
+      font-weight: 300;
+      padding-left: 4px;
+    }
+  }
+
+  > .breadcrumb {
+    background: transparent;
+    border-radius: 2px;
+    float: right;
+    font-size: 12px;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 7px 5px;
+    position: absolute;
+    right: 10px;
+    top: 15px;
+
+    > li > a {
+      color: #444;
+      display: inline-block;
+      text-decoration: none;
+
+      > .fa,
+      > .glyphicon,
+      > .ion {
+        margin-right: 5px;
+      }
+    }
+
+    > li + li:before {
+      content: '>\00a0';
+    }
+  }
+
+  @media (max-width: $screen-sm-max) {
+    > .breadcrumb {
+      background: $gray;
+      float: none;
+      margin-top: 5px;
+      padding-left: 10px;
+      position: relative;
+      right: 0;
+      top: 0;
+
+      li:before {
+        color: darken($gray, 20%);
+      }
+    }
+  }
+}
+
+.navbar-toggle {
+  border: 0;
+  color: #fff;
+  margin: 0;
+  padding: $navbar-padding-vertical $navbar-padding-horizontal;
+}
+//Control navbar scaffolding on x-small screens
+@media (max-width: $screen-sm-max) {
+  .navbar-custom-menu .navbar-nav > li {
+    float: left;
+  }
+  //Dont't let links get full width
+  .navbar-custom-menu .navbar-nav {
+    float: left;
+    margin: 0;
+  }
+
+  .navbar-custom-menu .navbar-nav > li > a {
+    line-height: 20px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+  }
+}
+
+// Collapse header
+@media (max-width: $screen-header-collapse) {
+  .main-header {
+    position: relative;
+
+    .logo,
+    .navbar {
+      float: none;
+      position: relative !important;
+      width: 100%;
+    }
+
+    .navbar {
+      margin: 0;
+    }
+
+    .navbar-custom-menu {
+      float: right;
+    }
+  }
+
+  .main-sidebar,
+  .left-side {
+    padding-top: 100px !important;
+  }
+}

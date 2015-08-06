@@ -1,31 +1,22 @@
 source 'https://rubygems.org'
 ruby '2.2.1'
 
-gem 'rails', '4.2.1'
-gem 'mysql2', '0.3.18'
+gem 'rails', '4.2.3'
+gem 'mysql2', '~> 0.3.18'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.1.0'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
 
-gem 'jquery-rails', '4.0.3'
+gem 'jquery-rails', '~> 4.0.3'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
 
 # Use Passenger as the app server
 gem 'passenger', '~> 5.0.10'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-gem 'devise', '3.4.1'
-gem 'bootstrap-sass', '3.3.4.1'
-gem 'font-awesome-sass', '4.3.2.1'
-gem 'simple-navigation', '3.14.0'
+gem 'devise', '~> 3.5.1'
+gem 'bootstrap-sass', '~> 3.3'
+gem 'font-awesome-sass', '~> 4.3'
+gem 'simple-navigation', '~> 4.0.3'
 
 group :development do
   gem 'better_errors', '2.1.1'
@@ -38,7 +29,7 @@ group :development, :test do
   gem 'spring', '~> 1.3.3'
 
   # Linting
-  gem 'rubocop', '~> 0.32.0', require: false
+  gem 'rubocop', '~> 0.32', require: false
   gem 'scss-lint', '~> 0.38.0', require: false
 
   # Documentation

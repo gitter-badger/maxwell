@@ -1,0 +1,45 @@
+// Component: Products List
+// ------------------------
+
+.products-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  > .item {
+    @include box-shadow($box-boxshadow);
+    @include clearfix();
+    background: #fff;
+    border-radius: $box-border-radius;
+    padding: 10px 0;
+  }
+
+  .product-img {
+    float: left;
+
+    img {
+      height: 50px;
+      width: 50px;
+    }
+  }
+
+  .product-info { margin-left: 60px; }
+  .product-title { font-weight: 600; }
+  .product-description {
+    color: #999;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.product-list-in-box > .item {
+  @include box-shadow(none);
+  border-bottom: 1px solid $box-border-color;
+  border-radius: 0;
+
+  &:last-of-type {
+    border-bottom-width: 0;
+  }
+}

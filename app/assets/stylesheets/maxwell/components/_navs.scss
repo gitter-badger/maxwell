@@ -1,0 +1,183 @@
+// Component: Nav
+// --------------
+
+// NAV PILLS
+.nav-pills {
+  > li > a {
+    border-radius: 0;
+    border-top: 3px solid transparent;
+    color: #444;
+
+    > .fa,
+    > .glyphicon,
+    > .ion {
+      margin-right: 5px;
+    }
+  }
+
+  > li.active > a,
+  > li.active > a:hover {
+    background-color: #f4f4f4;
+    border-top-color: $light-blue;
+    color: #444;
+  }
+
+  > li.active > a {
+    font-weight: 600;
+  }
+
+  > li > a:hover {
+    background-color: #f6f6f6;
+  }
+}
+
+// NAV STACKED
+.nav-stacked {
+  > li > a {
+    border-left: 3px solid transparent;
+    border-radius: 0;
+    border-top: 0;
+    color: #444;
+  }
+
+  > li.active > a,
+  > li.active > a:hover {
+    background-color: #f4f4f4;
+    border-left-color: $light-blue;
+    border-top: 0;
+    color: #444;
+  }
+
+  > li.header {
+    border-bottom: 1px solid #ddd;
+    color: #777;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    text-transform: uppercase;
+  }
+}
+
+// NAV TABS
+.nav-tabs-custom {
+  background: #fff;
+  border-radius: $box-border-radius;
+  box-shadow: $box-boxshadow;
+  margin-bottom: 20px;
+
+  > .nav-tabs {
+    @include border-top-radius($box-border-radius);
+    border-bottom-color: #f4f4f4;
+    margin: 0;
+
+    > li {
+      border-top: 3px solid transparent;
+      margin-bottom: -2px;
+      margin-right: 5px;
+
+      > a {
+        border-radius: 0 !important;
+
+        &,
+        &:hover {
+          background: transparent;
+          margin: 0;
+        }
+      }
+
+      &:not(.active) {
+        > a:hover,
+          > a:focus,
+          > a:active {
+          border-color: transparent;
+        }
+      }
+    }
+
+    > li.active {
+      border-top-color: $light-blue;
+
+      > a,
+      &:hover > a {
+        background-color: #fff;
+      }
+
+      > a {
+        border-left-color: #f4f4f4;
+        border-right-color: #f4f4f4;
+        border-top: 0;
+      }
+
+    }
+
+    > li:first-of-type {
+      margin-left: 0;
+
+      &.active {
+        > a {
+          border-left-width: 0;
+        }
+      }
+    }
+
+    //Pulled to the right
+    &.pull-right {
+      float: none !important;
+
+      > li { float: right; }
+
+      > li:first-of-type {
+        margin-right: 0;
+
+        &.active {
+          > a {
+            border-left-width: 1px;
+            border-right-width: 0;
+          }
+        }
+      }
+    }
+
+    > li.header {
+      color: #444;
+      font-size: 20px;
+      line-height: 35px;
+      padding: 0 10px;
+
+      > .fa,
+      > .glyphicon,
+      > .ion {
+        margin-right: 5px;
+      }
+    }
+  }
+
+  > .tab-content {
+    @include border-bottom-radius($box-border-radius);
+    background: #fff;
+    padding: 10px;
+  }
+}
+
+// Nav tabs bottom
+.tabs-bottom {
+  &.nav-3 {
+    li a {
+      width: percentage(100/3) !important;
+    }
+  }
+
+  li a { border: 0; }
+}
+
+// PAGINATION
+.pagination {
+  > li > a {
+    background: #fafafa;
+    color: #666;
+  }
+
+  > li:first-of-type a,
+  > li:last-of-type a {
+    border-radius: 0;
+  }
+}
