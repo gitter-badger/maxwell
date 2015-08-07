@@ -1,6 +1,6 @@
 # Maxwell
 
-[![Build Status](https://semaphoreci.com/api/v1/projects/2f00b4ae-f780-4173-9d94-e774497f1d0c/505115/badge.svg)](https://semaphoreci.com/joshminnie/maxwell)
+[![Build Status](https://semaphoreci.com/api/v1/projects/2f00b4ae-f780-4173-9d94-e774497f1d0c/505115/shields_badge.svg)](https://semaphoreci.com/joshminnie/maxwell)
 
 Maxwell is a media tracking tool which allows you to detail your media consumption.
 
