@@ -1,5 +1,7 @@
 # Maxwell
 
+[![Join the chat at https://gitter.im/joshminnie/maxwell](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/joshminnie/maxwell?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![Build Status](https://semaphoreci.com/api/v1/projects/2f00b4ae-f780-4173-9d94-e774497f1d0c/505115/shields_badge.svg)](https://semaphoreci.com/joshminnie/maxwell)
 [![Code Climate](https://codeclimate.com/github/joshminnie/maxwell/badges/gpa.svg)](https://codeclimate.com/github/joshminnie/maxwell)
 [![security](https://hakiri.io/github/joshminnie/maxwell/master.svg)](https://hakiri.io/github/joshminnie/maxwell/master)
